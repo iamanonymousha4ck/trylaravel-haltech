@@ -8,10 +8,16 @@ use Illuminate\Http\Request;
 
 class ProvinceController extends Controller
 {
-    public function listProvince() {
+    public function listProvinces() {
         // $listProvinces = Province::all();
         // $listProvinces = Province::orderBy('id', 'desc')->where('id', 2)->get();
         $listProvinces = Province::orderBy('id', 'desc')->get();
+
+        // relation model
+        $listProvinces->map(function ($item) {
+            $item->countDistrict = $item->district->count();
+            $item->district;
+        });
 
         return $listProvinces;
     }

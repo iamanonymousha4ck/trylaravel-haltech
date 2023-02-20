@@ -47,17 +47,20 @@ class DistrictRequest extends FormRequest
         // validation for editting data
         if($this->isMethod('put') && $this->routeIs('edit.district')) {
             return [
-                'id' => [
-                    'required',
-                    'numeric',
-                    Rule::exists('districts', 'id')
-                ],
                 'name' => [
                     'required',
                     'min:2',
-                    'max:30',
+                    'max:50',
                     Rule::unique('districts', 'name')
+                    ->where(function ($query) {
+                        $query->where('province_id', '=', $this->province_id);
+                    })
                     ->ignore($this->id)
+                ],
+                'province_id' => [
+                    'required',
+                    'numeric',
+                    Rule::exists('provinces', 'id')
                 ]
             ];
         }
@@ -67,8 +70,16 @@ class DistrictRequest extends FormRequest
             'name' => [
                 'required',
                 'min:2',
-                'max:10',
+                'max:50',
                 Rule::unique('districts', 'name')
+                ->where(function ($query) {
+                    $query->where('province_id', '=', $this->province_id);
+                }),
+            ],
+            'province_id' => [
+                'required',
+                'numeric',
+                Rule::exists('provinces', 'id')
             ]
         ];
     }

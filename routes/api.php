@@ -21,12 +21,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 // api method = get, post, put, delete
-Route::get('list-province', [ProvinceController::class, 'listProvince']);
+Route::get('list-provinces', [ProvinceController::class, 'listProvinces']);
 Route::post('add-province', [ProvinceController::class, 'addProvince'])->name('add.province');
 Route::put('edit-province/{id}', [ProvinceController::class, 'editProvince'])->name('edit.province');
 Route::delete('delete-province/{id}', [ProvinceController::class, 'deleteProvince'])->name('delete.province');
 
-Route::get('list-district', [DistrictController::class, 'listDistrict']);
+Route::get('list-districts', [DistrictController::class, 'listDistricts']);
 Route::post('add-district', [DistrictController::class, 'addDistrict'])->name('add.district');
 Route::put('edit-district/{id}', [DistrictController::class, 'editDistrict'])->name('edit.district');
-Route::delete('delete-province/{id}', [DistrictController::class, 'deleteDistrict'])->name('delete.district');
+Route::delete('delete-district/{id}', [DistrictController::class, 'deleteDistrict'])->name('delete.district');

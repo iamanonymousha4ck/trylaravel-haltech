@@ -54,7 +54,7 @@ class ProvinceRequest extends FormRequest
                 'name' => [
                     'required',
                     'min:2',
-                    'max:30',
+                    'max:50',
                     Rule::unique('provinces', 'name')
                     ->ignore($this->id)
                 ]
@@ -66,7 +66,7 @@ class ProvinceRequest extends FormRequest
             'name' => [
                 'required',
                 'min:2',
-                'max:10',
+                'max:50',
                 Rule::unique('provinces', 'name')
             ]
         ];
@@ -77,7 +77,7 @@ class ProvinceRequest extends FormRequest
             'name.required' => 'ກະລຸນາປ່ອນກ່ອນ....',
             'name.unique' => 'ມີຢູ່ໃນລະບົບແລ້ວ....',
             'name.min' => 'At least 2....',
-            'name.max' => 'Maximize 30....',
+            'name.max' => 'Maximize 50....',
         ];
     }
 }
