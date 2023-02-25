@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DistrictController;
 use App\Http\Controllers\ProvinceController;
+use App\Http\Controllers\UserProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,3 +56,6 @@ Route::group([
     Route::delete('delete-district/{id}', [DistrictController::class, 'deleteDistrict'])->name('delete.district');
 
 });
+
+Route::get('list-user-profile', [UserProfileController::class, 'listUserProfile'])->name('list.user.profile');
+Route::post('add-user-profile', [UserProfileController::class, 'addUserProfile'])->name('add.user.profile');

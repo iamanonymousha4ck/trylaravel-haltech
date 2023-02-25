@@ -8,10 +8,12 @@ use Illuminate\Http\Request;
 
 class ProvinceController extends Controller
 {
-    public function listProvinces() {
+    public function listProvinces(Request $request) {
         // $listProvinces = Province::all();
         // $listProvinces = Province::orderBy('id', 'desc')->where('id', 2)->get();
-        $listProvinces = Province::orderBy('id', 'desc')->get();
+        $listProvinces = Province::orderBy('id', 'desc')
+        ->where('name', 'LIKE', '%' . $request->search . '%')
+        ->get();
 
         // relation model
         $listProvinces->map(function ($item) {
