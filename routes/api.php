@@ -4,7 +4,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DistrictController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\ProvinceController;
+use App\Http\Controllers\TestController;
 use App\Http\Controllers\UserProfileController;
 
 /*
@@ -59,3 +61,7 @@ Route::group([
 
 Route::get('list-user-profile', [UserProfileController::class, 'listUserProfile'])->name('list.user.profile');
 Route::post('add-user-profile', [UserProfileController::class, 'addUserProfile'])->name('add.user.profile');
+
+Route::post('send-mail', [MailController::class, 'sendMail']);
+
+Route::post('check-data', [TestController::class, 'checkData']);

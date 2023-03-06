@@ -17,7 +17,7 @@ class UserProfileController extends Controller
     }
 
     public function addUserProfile(UserProfileRequest $request) {
-        return $request->all();
+        // return $request->all();
         if($request->hasFile('image')) {
             $destination_path = '/images/userprofile';
             $imageFile = $request->file('image');
@@ -26,7 +26,7 @@ class UserProfileController extends Controller
             $extension = $imageFile->getClientOriginalExtension();
 
             // Filename to store
-            $filename = 'user_profile' . '_' . time() . '_' . $extension;
+            $filename = 'user_profile' . '_' . time() . '.' . $extension;
             Storage::disk('public')->putFileAs($destination_path, $imageFile, $filename);
 
             // save filename to db

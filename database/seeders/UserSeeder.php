@@ -51,8 +51,8 @@ class UserSeeder extends Seeder
 
     public function CreatePermissions() {
         Permission::create(['name' => 'add', 'display_name' => 'Add']);
-        Permission::create(['name' => 'edit', 'display_name' => 'edit']);
-        Permission::create(['name' => 'view', 'display_name' => 'view']);
-        Permission::create(['name' => 'delete', 'display_name' => 'delete']);
+        Permission::create(['name' => 'edit', 'display_name' => 'Edit']);
+        Permission::create(['name' => 'view', 'display_name' => 'View']);
+        Permission::create(['name' => 'delete', 'display_name' => 'Delete']);
     }
 }
